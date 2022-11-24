@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* test */
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 60px;
+  right: 0px;
+  overflow: hidden;
+  padding: 8px;
+}
+
+.container {
+  padding: 0 1rem;
+  margin: 5px;
+  min-width: 600px;
+  /* test */
+  /* position: absolute;
+  top: 60px;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+  overflow: auto; */
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: absolute;
+  top: 60px;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+  padding: 8px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerRight {
+  display: flex;
+  gap: 16px;
+}
