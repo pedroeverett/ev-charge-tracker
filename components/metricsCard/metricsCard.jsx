@@ -1,3 +1,4 @@
+import React from 'react';
 import utilStyles from '../../styles/utils.module.css';
 import styles from './metricsCard.module.css';
 
