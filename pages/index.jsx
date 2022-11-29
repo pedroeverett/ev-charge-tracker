@@ -4,8 +4,10 @@ import Dashboard from '../components/dashboard/dashboard';
 import Layout, { siteTitle } from '../components/layout/layout';
 
 export async function getServerSideProps() {
+  const baseUrl = process.env.BASE_URL;
+  console.log('baseUrl', baseUrl);
   try {
-    const response = await fetch('/api/getCharges');
+    const response = await fetch(`${baseUrl}/api/getCharges`);
     const charges = await response.json();
     return {
       props: { charges: JSON.parse(JSON.stringify(charges)), isConnected: true },
