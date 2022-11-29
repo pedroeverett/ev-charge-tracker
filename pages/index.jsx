@@ -21,8 +21,11 @@ export async function getServerSideProps() {
 
 export default function Home({ charges, isConnected }) {
   const [listOfCharges, setListOfCharges] = useState();
+  console.log('charges', charges);
 
   useEffect(() => {
+    console.log('charges in use effect', charges, isConnected);
+
     if (charges) setListOfCharges(charges);
   }, [charges]);
 
