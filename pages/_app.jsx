@@ -1,4 +1,5 @@
 import { Grommet } from 'grommet';
+import React from 'react';
 import '../styles/global.css';
 import { EvTheme } from '../styles/theme';
 
