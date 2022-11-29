@@ -1,3 +1,17 @@
+## Ev Charge Tracker
+
+This is a personal project for an Ev Charge Tracker web app. This was developed with mobile usage in mind.
+
+## How to run locally
+
+Clone the repo and then:
+
+- 'yarn install' (to install dependencies)
+- If you don't yeat have a MongoDB, create on in [MongoDB](https://www.mongodb.com/developer/)
+- add the MONGODB_URI to the .env.local file
+- if your DB has different names from the one on this codebase, update the files in 'pages/api' with the names of your DB and Collection
+- 'yarn dev' (to run the project)
+
 ## Example app using MongoDB
 
 [MongoDB](https://www.mongodb.com/) is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. This example will show you how to connect to and use MongoDB as your backend for your Next.js app.
@@ -81,16 +95,3 @@ Alternatively, you can deploy using our template by clicking on the Deploy butto
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?project-name=with-mongodb&repository-name=with-mongodb&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-mongodb&integration-ids=oac_jnzmjqM10gllKmSrG0SGrHOH)
 
-#### Ev Charge Tracker
-
-This is a personal project for an Ev Charge Tracker web app. This was developed with mobile usage in mind.
-
-#### How to run locally
-
-Clone the repo and then:
-
-- 'yarn install' (to install dependencies)
-- If you don't yeat have a MongoDB, create on in [MongoDB](https://www.mongodb.com/developer/)
-- add the MONGODB_URI to the .env.local file
-- if your DB has different names from the one on this codebase, update the files in 'pages/api' with the names of your DB and Collection
-- 'yarn dev' (to run the project)
