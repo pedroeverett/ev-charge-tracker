@@ -5,7 +5,6 @@ import Layout, { siteTitle } from '../components/layout/layout';
 
 export async function getServerSideProps() {
   const baseUrl = process.env.BASE_URL;
-  console.log('baseUrl', baseUrl);
   try {
     const response = await fetch(`${baseUrl}/api/getCharges`);
     const charges = await response.json();
@@ -23,7 +22,6 @@ export async function getServerSideProps() {
 
 export default function Home({ charges, isConnected }) {
   const [listOfCharges, setListOfCharges] = useState();
-  console.log('charges', charges);
 
   useEffect(() => {
     console.log('charges in use effect', charges, isConnected);

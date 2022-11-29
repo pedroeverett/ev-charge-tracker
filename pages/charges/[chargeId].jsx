@@ -11,8 +11,9 @@ import FormBody from '../../components/formBody/formBody';
 
 export async function getServerSideProps(context) {
   const { chargeId } = context.query;
+  const baseUrl = process.env.BASE_URL;
   try {
-    const response = await fetch(`/api/getCharge?id=${chargeId}`);
+    const response = await fetch(`${baseUrl}/api/getCharge?id=${chargeId}`);
     const charge = await response.json();
     return {
       props: { charge: JSON.parse(JSON.stringify(charge)), isConnected: true },
