@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Button } from 'grommet';
 import { Add, Capacity, List } from 'grommet-icons';
+import React from 'react';
 import styles from './layout.module.css';
 import utilStyles from '../../styles/utils.module.css';
 import breakpoints from '../../styles/breakpoints';
@@ -13,9 +14,7 @@ const name = 'Ev Charging Tracker';
 export const siteTitle = 'Ev Charging Tracker';
 
 export default function Layout({ children, home }) {
-  // do I need the mediaQuery or not?
   const isMobile = useMediaQuery(breakpoints.mobileDown);
-  console.log('isMobile', isMobile);
   return (
     <div className={styles.container}>
       <Head>
@@ -25,16 +24,8 @@ export default function Layout({ children, home }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
-      <header className={styles.header}>
+      <header className={isMobile ? styles.headerMobile : styles.headerDesktop}>
         <div className={styles.headerLeft}>
           {home ? (
             <>
@@ -69,8 +60,7 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       </header>
-      {/* <main>{children}</main> */}
-      <div className={styles.main}>{children}</div>
+      <div className={isMobile ? styles.mainMobile : styles.mainDesktop}>{children}</div>
     </div>
   );
 }

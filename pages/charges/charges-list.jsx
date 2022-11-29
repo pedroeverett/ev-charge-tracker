@@ -1,5 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Spinner } from 'grommet';
-import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
 import ChargeCard from '../../components/chargeCard/chargeCard';
 import Layout from '../../components/layout/layout';
 import styles from './charges-list.module.css';
@@ -17,7 +19,6 @@ export async function getServerSideProps() {
     // db.find({}) or any of the MongoDB Node Driver commands
     const response = await fetch('http://localhost:3000/api/getCharges');
     const charges = await response.json();
-    console.log('charges', charges);
     return {
       props: { charges: JSON.parse(JSON.stringify(charges)), isConnected: true },
     };
@@ -31,6 +32,7 @@ export async function getServerSideProps() {
 }
 
 export default function ChargesList({ charges }) {
+  console.log('charges', charges);
   const [listOfCharges, setListOfCharges] = useState();
 
   useEffect(() => {
@@ -46,8 +48,12 @@ export default function ChargesList({ charges }) {
       ) : (
         <ul className={styles.noBullets}>
           {charges.map((charge) => (
-            <li className={styles.card}>
-              <ChargeCard charge={charge} />
+            <li className={styles.card} key={charge._id}>
+              <Link href={`/charges/${charge._id}`}>
+                <a>
+                  <ChargeCard charge={charge} />
+                </a>
+              </Link>
             </li>
           ))}
         </ul>

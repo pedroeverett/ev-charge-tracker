@@ -1,12 +1,11 @@
 import { format } from 'date-fns';
+import React from 'react';
 import { Calculator, Calendar, Car, Connectivity, Map, Money, Trigger } from 'grommet-icons';
 import { Colours } from '../../styles/theme';
 import utilStyles from '../../styles/utils.module.css';
 import styles from './chargeCard.module.css';
 
 export default function ChargeCard({ charge }) {
-  console.log('charge in card', charge);
-  console.log('charge.date', charge.date);
   return (
     <div className={styles.card}>
       <div className={styles.cardSection}>
@@ -33,11 +32,11 @@ export default function ChargeCard({ charge }) {
       <div className={styles.cardSection}>
         <div className={styles.item}>
           <Trigger color="white" />
-          <h1 className={utilStyles.headingLg}>{charge.kwh} kwh</h1>
+          <h1 className={utilStyles.headingLg}>{charge.kwh} kw</h1>
         </div>
         <div className={styles.item}>
           <Money color="white" />
-          <h1 className={utilStyles.headingLg}>{charge.pricePerKwh} £/kwh</h1>
+          <h1 className={utilStyles.headingLg}>{charge.pricePerKwh} £/kw</h1>
         </div>
         <div className={styles.item}>
           <Calculator color={Colours.brand} />

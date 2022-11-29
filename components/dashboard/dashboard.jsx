@@ -1,4 +1,5 @@
 import { Deploy, Grow, Time } from 'grommet-icons';
+import React from 'react';
 import { Colours } from '../../styles/theme';
 import utilStyles from '../../styles/utils.module.css';
 import ChargeCard from '../chargeCard/chargeCard';
@@ -7,7 +8,6 @@ import MetricsCard from '../metricsCard/metricsCard';
 import styles from './dashboard.module.css';
 
 export default function Dashboard({ charges }) {
-  console.log('charges', charges[0]);
   if (!charges) return null;
 
   const avgMilesKwh = () => {
@@ -26,10 +26,10 @@ export default function Dashboard({ charges }) {
         totalKwhCharged += charge.kwh;
       }
     });
-    return totalKwhCharged;
+    return totalKwhCharged.toFixed();
   };
 
-  const totalFreeMiles = () => avgMilesKwh() * totalFreeKwh();
+  const totalFreeMiles = () => (avgMilesKwh() * totalFreeKwh()).toFixed();
 
   return (
     <div className={styles.dashboardBody}>
@@ -45,13 +45,13 @@ export default function Dashboard({ charges }) {
         value={avgMilesKwh()}
         icon={<Time color={Colours.blue} size="large" />}
         text1="Average efficiency is"
-        text2="miles per kwh"
+        text2="miles per kw"
       />
       <MetricsCard
         value={totalFreeKwh()}
         icon={<Grow color={Colours.green} size="large" />}
         text1="You've charged"
-        text2="kwh for free!!"
+        text2="kw for free!!"
       />
       <MetricsCard
         value={totalFreeMiles()}

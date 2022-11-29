@@ -5,8 +5,10 @@ export default async (req, res) => {
   try {
     const client = await clientPromise;
     const db = client.db('Ev-Charging');
+    console.log('req', req);
     const { id } = req.query;
-    const { title, content } = req.body;
+    console.log('req.body', req.body);
+    const { date, mileage, kwh, pricePerKwh, chargerLocation, network, chargeCost } = req.body;
 
     const post = await db.collection('Charges').updateOne(
       {
@@ -14,8 +16,13 @@ export default async (req, res) => {
       },
       {
         $set: {
-          title,
-          content,
+          date,
+          mileage,
+          kwh,
+          pricePerKwh,
+          chargerLocation,
+          network,
+          chargeCost,
         },
       },
     );

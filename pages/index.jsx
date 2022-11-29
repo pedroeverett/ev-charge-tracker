@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dashboard from '../components/dashboard/dashboard';
 import Layout, { siteTitle } from '../components/layout/layout';
 
@@ -7,7 +7,6 @@ export async function getServerSideProps() {
   try {
     const response = await fetch('http://localhost:3000/api/getCharges');
     const charges = await response.json();
-    console.log('charges', charges);
     return {
       props: { charges: JSON.parse(JSON.stringify(charges)), isConnected: true },
     };
@@ -20,7 +19,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home({ charges }) {
+export default function Home({ charges, isConnected }) {
   const [listOfCharges, setListOfCharges] = useState();
 
   useEffect(() => {
@@ -32,8 +31,10 @@ export default function Home({ charges }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
-      <div>{listOfCharges && <Dashboard charges={listOfCharges} />}</div>
+      <div>
+        {listOfCharges && <Dashboard charges={listOfCharges} />}
+        {!isConnected && <div>Error connecting to the DB</div>}
+      </div>
     </Layout>
   );
 }

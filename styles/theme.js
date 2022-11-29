@@ -3,13 +3,14 @@ export const Colours = {
   green: '#37d67a',
   blue: '#4fc3f7',
   pink: '#f78da7',
+  red: '#d0021b',
+  darkGrey: '#333333',
 };
 
 export const EvTheme = {
   button: {
     color: 'white',
   },
-  // try bellow
   global: {
     focus: {
       border: {
@@ -20,7 +21,6 @@ export const EvTheme = {
       brand: Colours.brand,
     },
   },
-  // try above
   formField: {
     border: {
       color: 'white',
