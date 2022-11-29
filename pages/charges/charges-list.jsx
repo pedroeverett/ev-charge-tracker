@@ -7,17 +7,9 @@ import Layout from '../../components/layout/layout';
 import styles from './charges-list.module.css';
 
 export async function getServerSideProps() {
+  const baseUrl = process.env.BASE_URL;
   try {
-    // await clientPromise
-    // `await clientPromise` will use the default database passed in the MONGODB_URI
-    // However you can use another database (e.g. myDatabase) by replacing the `await clientPromise` with the following code:
-    //
-    // `const client = await clientPromise`
-    // `const db = client.db("myDatabase")`
-    //
-    // Then you can execute queries against your database like so:
-    // db.find({}) or any of the MongoDB Node Driver commands
-    const response = await fetch('/api/getCharges');
+    const response = await fetch(`${baseUrl}/api/getCharges`);
     const charges = await response.json();
     return {
       props: { charges: JSON.parse(JSON.stringify(charges)), isConnected: true },
@@ -32,14 +24,13 @@ export async function getServerSideProps() {
 }
 
 export default function ChargesList({ charges }) {
-  console.log('charges', charges);
   const [listOfCharges, setListOfCharges] = useState();
 
   useEffect(() => {
     if (charges) setListOfCharges(charges);
   }, [charges]);
 
-  if (!charges) return null;
+  // if (!charges) return null;
 
   return (
     <Layout>
