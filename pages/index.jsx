@@ -5,7 +5,7 @@ import Layout, { siteTitle } from '../components/layout/layout';
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch('http://localhost:3000/api/getCharges');
+    const response = await fetch('/api/getCharges');
     const charges = await response.json();
     return {
       props: { charges: JSON.parse(JSON.stringify(charges)), isConnected: true },

@@ -25,7 +25,7 @@ export default function AddChage() {
 
     if (convertedData) {
       try {
-        let response = await fetch('http://localhost:3000/api/addCharge', {
+        let response = await fetch('/api/addCharge', {
           method: 'POST',
           body: JSON.stringify(convertedData),
           headers: {

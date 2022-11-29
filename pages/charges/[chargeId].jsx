@@ -12,7 +12,7 @@ import FormBody from '../../components/formBody/formBody';
 export async function getServerSideProps(context) {
   const { chargeId } = context.query;
   try {
-    const response = await fetch(`http://localhost:3000/api/getCharge?id=${chargeId}`);
+    const response = await fetch(`/api/getCharge?id=${chargeId}`);
     const charge = await response.json();
     return {
       props: { charge: JSON.parse(JSON.stringify(charge)), isConnected: true },
@@ -44,7 +44,7 @@ export default function EditChage({ charge }) {
 
     if (convertedData) {
       try {
-        let response = await fetch(`http://localhost:3000/api/editCharge?id=${charge._id}`, {
+        let response = await fetch(`/api/editCharge?id=${charge._id}`, {
           method: 'POST',
           body: JSON.stringify(convertedData),
           headers: {
@@ -65,7 +65,7 @@ export default function EditChage({ charge }) {
 
   const handleDeleteCharge = async (chargeId) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/deleteCharge?id=${chargeId}`, {
+      const response = await fetch(`/api/deleteCharge?id=${chargeId}`, {
         method: 'POST',
         headers: {
           Accept: 'application/json, text/plain, */*',
