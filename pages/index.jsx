@@ -33,7 +33,7 @@ export default function Home({ charges, isConnected }) {
       </Head>
       <div>
         {listOfCharges && <Dashboard charges={listOfCharges} />}
-        {!isConnected && <div>Error connecting to the DB</div>}
+        {!isConnected && <div>Error connecting to the DB!!</div>}
       </div>
     </Layout>
   );
