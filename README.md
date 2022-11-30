@@ -9,6 +9,7 @@ Clone the repo and then:
 - 'yarn install' (to install dependencies)
 - If you don't yeat have a MongoDB, create on in [MongoDB](https://www.mongodb.com/developer/)
 - add the MONGODB_URI to the .env.local file
+- add BASE_URL=http://localhost:3000/ to the .env.local file
 - if your DB has different names from the one on this codebase, update the files in 'pages/api' with the names of your DB and Collection
 - 'yarn dev' (to run the project)
 
@@ -94,4 +95,3 @@ To deploy your local project to Vercel, push it to GitHub/GitLab/Bitbucket and [
 Alternatively, you can deploy using our template by clicking on the Deploy button below.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?project-name=with-mongodb&repository-name=with-mongodb&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-mongodb&integration-ids=oac_jnzmjqM10gllKmSrG0SGrHOH)
-

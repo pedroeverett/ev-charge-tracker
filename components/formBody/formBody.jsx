@@ -110,7 +110,15 @@ export default function FormBody({ control }) {
           <FormField name="network" htmlFor="network-input-id" label="Network">
             <Select
               className={styles.select}
-              options={['Tesla', 'Charge Place Scotland', 'PlugShare', 'Home', 'Miio', 'Other']}
+              options={[
+                'Tesla',
+                'Charge Place Scotland',
+                'PlugShare',
+                'Home',
+                'Electric Universe',
+                'Miio',
+                'Other',
+              ]}
               {...field}
               icon={<Connectivity color="white" />}
               dropProps={{ background: { color: `${Colours.darkGrey}` } }}

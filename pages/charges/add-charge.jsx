@@ -34,7 +34,6 @@ export default function AddChage() {
           },
         });
         response = await response.json();
-        console.log('Charge added successfully', response);
         router.push('/');
       } catch (errorMessage) {
         console.log('errorMessage', errorMessage);

@@ -54,7 +54,6 @@ export default function EditChage({ charge }) {
           },
         });
         response = await response.json();
-        console.log('Charge eddited successfully', response);
         router.push('/');
       } catch (errorMessage) {
         console.log('errorMessage', errorMessage);

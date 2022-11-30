@@ -24,8 +24,6 @@ export default function Home({ charges, isConnected }) {
   const [listOfCharges, setListOfCharges] = useState();
 
   useEffect(() => {
-    console.log('charges in use effect', charges, isConnected);
-
     if (charges) setListOfCharges(charges);
   }, [charges]);
 

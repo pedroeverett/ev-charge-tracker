@@ -5,9 +5,7 @@ export default async (req, res) => {
   try {
     const client = await clientPromise;
     const db = client.db('Ev-Charging');
-    console.log('req', req);
     const { id } = req.query;
-    console.log('req.body', req.body);
     const { date, mileage, kwh, pricePerKwh, chargerLocation, network, chargeCost } = req.body;
 
     const post = await db.collection('Charges').updateOne(
