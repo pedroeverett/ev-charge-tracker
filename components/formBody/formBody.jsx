@@ -116,6 +116,7 @@ export default function FormBody({ control }) {
                 'PlugShare',
                 'Home',
                 'Electric Universe',
+                'GridServe',
                 'Miio',
                 'Other',
               ]}
